@@ -1,6 +1,7 @@
 import { Box, render, Static, Text, useCursor, useInput } from "ink";
 import React from "react";
 import { handleMain } from "./cpp";
+import { fswatch$ } from "./fs";
 import { MqttDemo } from "./mqtt";
 import { confrim$ as confirm$, inputWindow$ } from "./scanner";
 
@@ -52,6 +53,13 @@ const Counter = () => {
           break;
         case "confirmfalse":
           confirm$.next(false);
+          break;
+        case "watch":
+          fswatch$.subscribe((value) => {
+            console.log(value);
+          });
+          break;
+        case "watchclose":
           break;
         case "exit":
           process.exit();

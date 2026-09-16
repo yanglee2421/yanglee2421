@@ -1,6 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+import url from "node:url";
 import pLimit from "p-limit";
+import { Observable } from "rxjs";
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const ensureDir = async (dir: string) => {
   // Output must can be accessed
@@ -75,3 +80,23 @@ export const copyDir = async (source: string, destination: string): Promise<stri
 
   return results.flat();
 };
+
+export const fswatch$ = new Observable<{ eventType: string; filename: string | NonSharedBuffer }>(
+  (sub) => {
+    const watcher = fs.watch(path.resolve(__dirname, "./watch"), { recursive: true });
+
+    watcher.on("change", (eventType, filename) => {
+      sub.next({ eventType, filename });
+    });
+    watcher.on("error", (error) => {
+      sub.error(error);
+    });
+    watcher.on("close", () => {
+      sub.complete();
+    });
+
+    return () => {
+      watcher.close();
+    };
+  },
+);
