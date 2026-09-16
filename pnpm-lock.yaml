@@ -56,6 +56,9 @@ importers:
       node-fxplc:
         specifier: ^0.1.7
         version: 0.1.7
+      p-limit:
+        specifier: ^7.3.2
+        version: 7.3.2
       react:
         specifier: ^19.2.5
         version: 19.2.5
@@ -65,13 +68,16 @@ importers:
       serialport:
         specifier: ^13.0.0
         version: 13.0.0
+      ws:
+        specifier: ^8.21.3
+        version: 8.21.3
     devDependencies:
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
-      p-limit:
-        specifier: ^7.3.0
-        version: 7.3.0
+      '@types/ws':
+        specifier: ^8.18.1
+        version: 8.18.1
 
   apps/serve:
     dependencies:
@@ -3219,8 +3225,8 @@ packages:
       vite-plus:
         optional: true
 
-  p-limit@7.3.0:
-    resolution: {integrity: sha512-7cIXg/Z0M5WZRblrsOla88S4wAK+zOQQWeBYfV3qJuJXMr+LnbYjaadrFaS0JILfEDPVqHyKnZ1Z/1d6J9VVUw==}
+  p-limit@7.3.2:
+    resolution: {integrity: sha512-Ll0w3fU24vYpXoZmjjZIee6bJQDgG0oAyo1PdmFYI8UDwJJddaHAypxIH9avUu+t+lSsAwKVsb1jDCMIIChliw==}
     engines: {node: '>=20'}
 
   patch-console@2.0.0:
@@ -6156,7 +6162,7 @@ snapshots:
       oxlint-tsgolint: 7.0.2001
       vite-plus: 0.2.9(@types/node@25.3.0)(esbuild@0.27.7)(jiti@2.7.0)(typescript@7.0.2)(vite@7.3.1(@types/node@25.3.0)(jiti@2.7.0)(lightningcss@1.33.0))
 
-  p-limit@7.3.0:
+  p-limit@7.3.2:
     dependencies:
       yocto-queue: 1.2.2
 
