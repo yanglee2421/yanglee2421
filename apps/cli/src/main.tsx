@@ -2,6 +2,7 @@ import { Box, render, Static, Text, useCursor, useInput } from "ink";
 import React from "react";
 import { handleMain } from "./cpp";
 import { fswatch$ } from "./fs";
+import { handleModbus } from "./modbus";
 import { MqttDemo } from "./mqtt";
 import { confrim$ as confirm$, inputWindow$ } from "./scanner";
 
@@ -60,6 +61,9 @@ const Counter = () => {
           });
           break;
         case "watchclose":
+          break;
+        case "modbus":
+          handleModbus();
           break;
         case "exit":
           process.exit();
