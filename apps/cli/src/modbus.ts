@@ -16,13 +16,14 @@ export const handleModbus = () => {
         for (let i = 0; i < 8; i++) {
           await client.writeCoil(0xfc00 + i, true);
         }
-        const result = await client.writeCoil(0xfc00 + 0o40, true);
-
+        const result = await client.writeCoil(0xfc00 + 0o41, true);
         console.log(result.state);
 
-        const cols = await client.readCoils(0xf800, 1);
+        const readCoils = await client.readCoils(0xf800, 8);
+        console.log("readCoils", readCoils.data);
 
-        console.log(cols.data);
+        const register = await client.writeRegister(0, 9999);
+        console.log(register.value);
       } catch (error) {
         console.error(error);
       }
