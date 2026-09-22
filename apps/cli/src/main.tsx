@@ -1,9 +1,11 @@
 import { Box, render, Static, Text, useCursor, useInput } from "ink";
 import React from "react";
+import { tap } from "rxjs";
 import { handleMain } from "./cpp";
 import { fswatch$ } from "./fs";
 import { handleModbus } from "./modbus";
 import { MqttDemo } from "./mqtt";
+import { tasklist$ } from "./process";
 import { confrim$ as confirm$, inputWindow$ } from "./scanner";
 
 const handleMqtt = () => {
@@ -64,6 +66,15 @@ const Counter = () => {
           break;
         case "modbus":
           handleModbus();
+          break;
+        case "tasklist":
+          tasklist$
+            .pipe(
+              tap((msg) => {
+                console.log(msg);
+              }),
+            )
+            .subscribe();
           break;
         case "exit":
           process.exit();
