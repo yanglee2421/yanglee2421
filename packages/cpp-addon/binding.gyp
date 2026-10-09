@@ -10,7 +10,8 @@
           "destination": "<(PRODUCT_DIR)",
           "files": [
             "<(module_root_dir)/lib/TOFDPort.dll",
-            "<(module_root_dir)/lib/ftd2xx.dll"
+            "<(module_root_dir)/lib/ftd2xx.dll",
+            "<(module_root_dir)/lib/GainTable.ini",
           ]
         }
       ],
