@@ -41,6 +41,8 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/bcrypt": "^6.0.0"
+    "@types/bcrypt": "^6.0.0",
+    "cli": "^1.0.1",
+    "rolldown": "^1.2.5"
   }
 }

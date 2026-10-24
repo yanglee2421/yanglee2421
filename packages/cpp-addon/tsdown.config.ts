@@ -27,7 +27,7 @@ const calcualteDTSExtension = (format: string) => {
   }
 };
 
-export default defineConfig((conf) => {
+export default defineConfig(() => {
   return {
     // Input
     entry: ["src/main.ts"],
