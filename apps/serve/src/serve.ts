@@ -36,7 +36,7 @@ const bootstrap$ = new Observable<ServerType>((sub) => {
 
   app.route("/", ankang);
 
-  const server = serve({ ...app, port: 8080, hostname: "localhost" }, (info) => {
+  const server = serve({ ...app, port: 8080, hostname: "127.0.0.1" }, (info) => {
     console.log(info);
   });
   sub.next(server);
