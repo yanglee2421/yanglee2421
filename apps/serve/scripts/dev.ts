@@ -3,7 +3,7 @@ import path from "node:path";
 import url from "node:url";
 import type { RolldownWatcher, WatchOptions } from "rolldown";
 import { watch } from "rolldown";
-import { catchError, EMPTY, Observable, switchMap, tap } from "rxjs";
+import { catchError, EMPTY, filter, fromEventPattern, map, Observable, switchMap, tap } from "rxjs";
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,16 +24,35 @@ const startNode = (watcher: RolldownWatcher) => {
       sub.complete();
     });
 
-    ps.stdout?.addListener("data", (data) => {
-      console.log(String(data).trim());
-    });
-    ps.stderr?.addListener("data", (data) => {
-      console.error(String(data).trim());
-    });
+    const stdoutData$ = fromEventPattern<Buffer>(
+      (h) => ps.stdout?.on("data", h),
+      (h) => ps.stdout?.off("data", h),
+    );
+    const stderrData$ = fromEventPattern<Buffer>(
+      (h) => ps.stderr?.on("data", h),
+      (h) => ps.stderr?.off("data", h),
+    );
+
+    const sub1 = stdoutData$
+      .pipe(
+        map((buf) => buf.toString().trim()),
+        filter((i) => !!i),
+      )
+      .subscribe((msg) => {
+        console.log(msg);
+      });
+    const sub2 = stderrData$
+      .pipe(
+        map((buf) => buf.toString().trim()),
+        filter((i) => !!i),
+      )
+      .subscribe((msg) => {
+        console.error(msg);
+      });
 
     return () => {
-      ps.stdout?.removeAllListeners();
-      ps.stderr?.removeAllListeners();
+      sub2.unsubscribe();
+      sub1.unsubscribe();
       ps.removeAllListeners();
       ps.kill("SIGHUP");
     };
@@ -65,9 +84,7 @@ const watchOptions = (): WatchOptions => {
         __filename: [shimFile, "__filename"],
       },
     },
-    external: (id, parentId, isResolved) => {
-      void parentId;
-
+    external: (id, _parentId, isResolved) => {
       if (!isResolved) {
         if (id.startsWith(".")) {
           return false;
