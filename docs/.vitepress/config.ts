@@ -12,10 +12,7 @@ export default defineConfig({
   lang: "zh-CN",
   title: "DOCS",
   head: [
-    [
-      "link",
-      { rel: "shortcut icon", href: "/yanglee2421/symbol-inverted.svg" },
-    ],
+    ["link", { rel: "shortcut icon", href: "/yanglee2421/symbol-inverted.svg" }],
     ["meta", { name: "theme-color", content: "#6366f1" }],
     ["meta", { rel: "description", content: "Yang_Lee的JS开发者文档" }],
   ],
@@ -39,6 +36,7 @@ export default defineConfig({
       { text: "ECMAScript", link: "/ecmascript/index.md" },
       { text: "Toolkit", link: "/toolkit/00_git.md" },
       { text: "Environment", link: "/env/react-native.md" },
+      { text: "C++", link: "/cpp/index.md" },
     ],
     sidebar: {
       "/ecmascript/": [

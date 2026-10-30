@@ -1,4 +1,3 @@
-import type { AxiosInstance } from "axios";
 import type { DBService } from "./db";
 import type { HashService } from "./hash";
 
@@ -8,6 +7,4 @@ export interface AppCradle {
 
   db: DBService;
   hash: HashService;
-  axiosBing: AxiosInstance;
-  axiosAutumnfish: AxiosInstance;
 }

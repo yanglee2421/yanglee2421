@@ -26,14 +26,14 @@
     "require": "./dist/index.cjs"
   },
   "scripts": {
-    "dev": "node ./scripts/dev.ts"
+    "dev": "vpx ./scripts/dev.ts",
+    "build": "vp pack src/index.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.12",
     "@yanglee2421/db": "workspace:*",
     "@yotulee/run": "jsr:^0.0.12",
     "awilix": "^13.0.3",
-    "axios": "^1.13.6",
     "bcrypt": "^6.0.0",
     "drizzle-orm": "1.0.0-beta.22",
     "hono": "^4.12.11",
@@ -41,8 +41,6 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/bcrypt": "^6.0.0",
-    "cli": "^1.0.1",
-    "rolldown": "^1.2.5"
+    "@types/bcrypt": "^6.0.0"
   }
 }

@@ -4,6 +4,7 @@
   "license": "MIT",
   "author": "yanglee2421",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
