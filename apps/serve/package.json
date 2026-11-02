@@ -26,8 +26,8 @@
     "require": "./dist/index.cjs"
   },
   "scripts": {
-    "dev": "vpx ./scripts/dev.ts",
-    "build": "vp pack src/index.ts"
+    "dev": "vpx ./src/serve.ts",
+    "build": "vp pack"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.12",

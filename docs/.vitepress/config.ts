@@ -35,7 +35,6 @@ export default defineConfig({
       { text: "Best Practices", link: "/best_practices/locale.md" },
       { text: "ECMAScript", link: "/ecmascript/index.md" },
       { text: "Toolkit", link: "/toolkit/00_git.md" },
-      { text: "Environment", link: "/env/react-native.md" },
       { text: "C++", link: "/cpp/index.md" },
     ],
     sidebar: {
@@ -171,15 +170,6 @@ export default defineConfig({
           text: "Others",
           collapsed: false,
           items: [{ text: "markdown", link: "/toolkit/01_markdown.md" }],
-        },
-      ],
-      "/env/": [
-        {
-          text: "Environment",
-          items: [
-            { text: "React Native", link: "/env/react-native.md" },
-            { text: "Electron", link: "/env/electron.md" },
-          ],
         },
       ],
     },
