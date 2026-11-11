@@ -40,7 +40,7 @@
 
 ### useInsertionEffect
 
-写库用, 触发于组件生成的DOM插入到组件树之后，布局发生之前
+写库用, 触发于组件生成的DOM插入到组件树之前, 也就是说setup函数里不一定能获取到组件生成的DOM
 
 ### useLayoutEffect
 
