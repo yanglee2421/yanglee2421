@@ -24,5 +24,5 @@
     "types": ["node"],
     "jsx": "react-jsx"
   },
-  "include": ["src", "scripts"]
+  "include": ["src", "vite.config.ts"]
 }

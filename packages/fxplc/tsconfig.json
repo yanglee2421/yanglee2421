@@ -27,5 +27,5 @@
     },
     "jsx": "react-jsx"
   },
-  "include": ["src", "tsdown.config.ts"]
+  "include": ["src"]
 }
