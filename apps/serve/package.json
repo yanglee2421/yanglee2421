@@ -35,7 +35,7 @@
     "@yotulee/run": "jsr:^0.0.12",
     "awilix": "^13.0.3",
     "bcrypt": "^6.0.0",
-    "drizzle-orm": "1.0.0-beta.22",
+    "drizzle-orm": "1.0.0-rc.5",
     "hono": "^4.12.11",
     "rxjs": "^7.8.2",
     "zod": "^4.3.6"

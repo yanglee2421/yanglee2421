@@ -1,6 +1,6 @@
 import path from "node:path";
 import url from "node:url";
-import { defineConfig } from "tsdown";
+import { defineConfig } from "vite-plus";
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,11 +27,15 @@ const calcualteDTSExtension = (format: string) => {
   }
 };
 
-export default defineConfig(() => {
-  return {
+export default defineConfig({
+  pack: {
     // Input
     entry: ["src/main.ts"],
     deps: {
+      // tsdown <0.23 compatibility: resolve external dependency subpaths.
+      // Remove to preserve subpath imports as written (the new default).
+      // https://tsdown.dev/options/dependencies#deps-resolvedepsubpath
+      resolveDepSubpath: true,
       neverBundle: true,
     },
 
@@ -54,5 +58,5 @@ export default defineConfig(() => {
     plugins: [],
     clean: true,
     onSuccess: async () => {},
-  };
+  },
 });

@@ -29,6 +29,6 @@
   "devDependencies": {
     "@types/node": "^25.3.0",
     "typescript": "^7.0.2",
-    "vite-plus": "^1.4.0"
+    "vite-plus": "catalog:"
   }
 }

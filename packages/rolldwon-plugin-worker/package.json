@@ -1,6 +1,0 @@
-{
-  "name": "@yanglee2421/rolldown-plugin-worker",
-  "devDependencies": {
-    "rolldown": "^1.3.1"
-  }
-}

@@ -26,7 +26,7 @@
     "cli": "dist/index.mjs"
   },
   "engines": {
-    "node": "^20.0.0 || >=22.0.0"
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
   },
   "scripts": {
     "dev": "vpx ./src/main.tsx",
@@ -42,7 +42,7 @@
     "aedes": "^1.1.2",
     "basic-ftp": "^6.0.1",
     "csv": "^6.6.3",
-    "drizzle-orm": "1.0.0-beta.22",
+    "drizzle-orm": "1.0.0-rc.5",
     "iconv-lite": "^0.7.3",
     "ink": "^7.0.1",
     "modbus-serial": "^8.0.25",

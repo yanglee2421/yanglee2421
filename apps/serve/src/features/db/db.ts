@@ -1,4 +1,4 @@
-import { relations, schema } from "@yanglee2421/db";
+import { relations } from "@yanglee2421/db";
 import { drizzle } from "drizzle-orm/node-sqlite";
 import fs from "node:fs";
 import path from "node:path";
@@ -12,7 +12,7 @@ export class DBService {
 
   constructor({ dbPath }: AppCradle) {
     const dbClient = new DatabaseSync(dbPath);
-    this.client = drizzle({ client: dbClient, schema, relations });
+    this.client = drizzle({ client: dbClient, relations });
   }
 
   dispose() {
