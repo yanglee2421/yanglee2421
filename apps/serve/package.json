@@ -26,7 +26,7 @@
     "require": "./dist/index.cjs"
   },
   "scripts": {
-    "dev": "vpx ./src/serve.ts",
+    "dev": "vpx --watch ./src/serve.ts",
     "build": "vp pack"
   },
   "dependencies": {

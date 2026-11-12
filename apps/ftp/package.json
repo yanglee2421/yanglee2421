@@ -1,7 +1,7 @@
 {
   "name": "@yanglee2421/ftp",
   "scripts": {
-    "dev": "vpx ./src/index.ts"
+    "dev": "vpx --watch ./src/index.ts"
   },
   "dependencies": {
     "@electerm/ftp-srv": "^1.0.6"
