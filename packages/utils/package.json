@@ -1,0 +1,38 @@
+{
+  "name": "@yanglee2421/utils",
+  "version": "0.0.1",
+  "description": "A lightweight, modern, and type-safe JavaScript/TypeScript utility library.",
+  "keywords": [
+    "utils",
+    "toolkit",
+    "helpers",
+    "typescript",
+    "javascript",
+    "zero-dependency"
+  ],
+  "license": "MIT",
+  "author": "yanglee2421",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanglee2421/yanglee2421.git",
+    "directory": "/packages/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/yanglee2421/yanglee2421/issues"
+  },
+  "homepage": "https://github.com/yanglee2421/yanglee2421/blob/main/README.md",
+  "private": false,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": "./dist/index.mjs",
+    "types": "./dist/index.d.mts"
+  },
+  "scripts": {
+    "dev": "vpx --watch ./src/index.ts",
+    "build": "vp pack"
+  },
+  "packageManager": "pnpm@12.18.0+sha512.9d7882d5dc82147ecfc4e062aa34834e0ad0296710a1837a1115ae012127d36b7109e321ac1598a1dd0a65597681b1e99917e12ed0d749eae91187943363beb3"
+}
