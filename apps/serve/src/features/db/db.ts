@@ -5,10 +5,10 @@ import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import url from "node:url";
 import type { AppCradle } from "../types";
-import type { DBClient } from "./types";
+import type { DBClientType } from "./types";
 
 export class DBService {
-  readonly client: DBClient;
+  readonly client: DBClientType;
 
   constructor({ dbPath }: AppCradle) {
     const dbClient = new DatabaseSync(dbPath);

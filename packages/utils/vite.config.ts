@@ -7,6 +7,8 @@ export default defineConfig({
 
     outDir: "dist",
     format: "esm",
+    platform: "neutral",
+    shims: false,
     dts: true,
   },
 });
