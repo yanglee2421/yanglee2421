@@ -1,4 +1,5 @@
-type CallbackFn<TArgs extends unknown[], TReturn> = (...args: TArgs) => TReturn;
+import type { CallbackFn } from "./types";
+
 /**
  * Polyfill for `Array.prototype.groupBy` method, which is not yet widely supported.
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/groupBy
