@@ -18,7 +18,6 @@ import {
   switchMap,
   take,
   tap,
-  throwError,
 } from "rxjs";
 import { fromFetch } from "rxjs/fetch";
 import { InterByteTimeoutParser, SerialPort } from "serialport";
@@ -151,7 +150,7 @@ export const app$ = combineLatest([m111$, m112$])
 
           return defer(() => {
             if (typeof value !== "string") {
-              return throwError(() => new Error("Scanner failed by plc"));
+              throw new Error("Scanner failed by plc");
             }
 
             return fromFetch("").pipe(

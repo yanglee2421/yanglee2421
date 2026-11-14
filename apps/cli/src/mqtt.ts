@@ -13,7 +13,6 @@ import {
   switchMap,
   takeUntil,
   tap,
-  throwError,
   timer,
 } from "rxjs";
 
@@ -79,8 +78,16 @@ export class MqttDemo {
                   map(([, payload]) => payload.toString()),
                 ),
                 reconnect$.pipe(ignoreElements()),
-                error$.pipe(switchMap(() => throwError(() => new Error("error")))),
-                offline$.pipe(switchMap(() => throwError(() => new Error("offline")))),
+                error$.pipe(
+                  tap(() => {
+                    throw new Error("error");
+                  }),
+                ),
+                offline$.pipe(
+                  tap(() => {
+                    throw new Error("offline");
+                  }),
+                ),
               ).pipe(takeUntil(close$));
             }),
           );
